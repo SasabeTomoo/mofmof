@@ -1,0 +1,23 @@
+<%= form_with(model: @estate, local: true) do |form| %>
+  <div class="estate_form">
+    <%= form.label :物件名 %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :賃料 %>
+    <%= form.text_field :fee %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :住所 %>
+    <%= form.text_field :adress %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :耐用年数 %>
+    <%= form.text_field :year %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :備考 %>
+    <%= form.text_field :memo %>
+  </div>
+  <%= form.submit %>
+<% end %>
