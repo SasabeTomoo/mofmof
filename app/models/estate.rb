@@ -1,4 +1,4 @@
 class Estate < ApplicationRecord
-  has_many :stations, dependent: :destroy
-  accepts_nested_attributes_for :stations
+  has_one :station, dependent: :destroy
+  accepts_nested_attributes_for :station
 end
