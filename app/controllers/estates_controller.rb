@@ -17,6 +17,9 @@ class EstatesController < ApplicationController
   def show
   end
   def edit
+    @estate = Estate.find(params[:id])
+  end
+  def update
   end
   def destroy
   end
