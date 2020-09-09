@@ -1,11 +1,11 @@
 class EstatesController < ApplicationController
   def index
+    @estates = Estate.all
   end
   def new
     @estate = Estate.new
     @estate.build_station
   end
-
   def create
     @estate = Estate.new(estate_params)
     if @estate.save
@@ -13,6 +13,12 @@ class EstatesController < ApplicationController
     else
       render :new
     end
+  end
+  def show
+  end
+  def edit
+  end
+  def destroy
   end
 
   private

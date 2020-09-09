@@ -20,7 +20,7 @@
     <%= form.text_field :memo %>
   </div>
 
-    <h4>最寄駅</h4>
+    <h4>最寄駅1</h4>
     <%= form.fields_for :station do |station| %>
       <div class="estate_form">
       <%= station.label :路線 %>
@@ -36,5 +36,21 @@
       </div>
     <% end %>
 
+    <h4>最寄駅2</h4>
+    <%= form.fields_for :station do |station| %>
+      <div class="estate_form">
+      <%= station.label :路線 %>
+      <%= station.text_field :route %>
+      </div>
+      <div class="estate_form">
+      <%= station.label :駅名 %>
+      <%= station.text_field :name %>
+      </div>
+      <div class="estate_form">
+      <%= station.label :徒歩数 %>
+      <%= station.text_field :time %>
+      </div>
+    <% end %>
+    
   <%= form.submit %>
 <% end %>

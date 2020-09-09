@@ -1,2 +1,24 @@
-<h1>Estates#index</h1>
-<p>Find me in app/views/estates/index.html.erb</p>
+<h1>物件一覧</h1>
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>賃料</th>
+    <th>住所</th>
+    <th>耐用年数</th>
+    <th>備考</th>
+  </tr>
+  <% @estates.each do |estate| %>
+  <tr>
+    <td><%= estate.name %></td>
+    <td><%= estate.fee %></td>
+    <td><%= estate.adress %></td>
+    <td><%= estate.year %></td>
+    <td><%= estate.memo %></td>
+    <td><%= link_to '詳細', estate_path(estate.id) %></td>
+    <td><%= link_to '編集', edit_estate_path(estate.id) %></td>
+    <td><%= link_to '削除', estate_path(estate.id), method: :delete ,data: { confirm: '本当に削除していいですか？'} %></td>
+  </tr>
+  <% end %>
+</table>
+
+<a><%= link_to '物件を登録する', new_estate_path %></a>
