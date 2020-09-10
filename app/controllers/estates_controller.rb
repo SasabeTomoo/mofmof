@@ -1,4 +1,5 @@
 class EstatesController < ApplicationController
+  before_action :set_estate, only: [:show, :edit, :update, :destroy]
   def index
     @estates = Estate.all
   end
@@ -15,27 +16,37 @@ class EstatesController < ApplicationController
     end
   end
   def show
+    @stations = Station.all
+    binding.pry
+    @moyori_stations = @stations.find(@estate.id).
   end
   def edit
-    @estate = Estate.find(params[:id])
   end
   def update
+    @estate.update(estate_params)
+      redirect_to estates_path, notice: "編集しました"
   end
   def destroy
+    @estate.destroy
+    redirect_to estates_path, notice:"削除しました"
   end
+end
 
-  private
-    def estate_params
-      params.require(:estate).permit(
-              :name,
-              :fee,
-              :adress,
-              :year,
-              :memo,
-              station_attributes:[:id,
-                                  :route,
-                                  :name,
-                                  :time,
-                                  :estate_id])
-    end
+private
+def set_estate
+  @estate = Estate.find(params[:id])
+end
+def estate_params
+  params.require(:estate).permit(
+          :name,
+          :fee,
+          :adress,
+          :year,
+          :memo,
+          station_attributes:[:id,
+                              :route,
+                              :name,
+                              :time,
+                              :estate_id])
+  end
 end

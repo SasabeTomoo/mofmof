@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <header>
+      <a>[mofmof] </a>
+      <%= link_to '[一覧へ]', estates_path %>
+      <%= link_to '[登録へ]', new_estate_path %>
+    </header>
     <%= yield %>
   </body>
 </html>

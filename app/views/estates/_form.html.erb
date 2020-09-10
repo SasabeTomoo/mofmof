@@ -1,0 +1,55 @@
+<%= nested_form_for @estate do |form| %>
+  <div class="estate_form">
+    <%= form.label :物件名 %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :賃料 %>
+    <%= form.text_field :fee %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :住所 %>
+    <%= form.text_field :adress %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :耐用年数 %>
+    <%= form.text_field :year %>
+  </div>
+  <div class="estate_form">
+    <%= form.label :備考 %>
+    <%= form.text_field :memo %>
+  </div>
+
+    <%= form.fields_for :station do |station| %>
+      <h4>最寄駅</h4>
+      <div class="estate_form">
+      <%= station.label :路線 %>
+      <%= station.text_field :route %>
+      </div>
+      <div class="estate_form">
+      <%= station.label :駅名 %>
+      <%= station.text_field :name %>
+      </div>
+      <div class="estate_form">
+      <%= station.label :徒歩数 %>
+      <%= station.text_field :time %>
+      </div>
+    <% end %>
+  <p><%= form.link_to_add '最寄駅を追加', :station %></p>
+  <%= form.submit %>
+<% end %>
+
+<script>
+window.onload = () => {
+  document.getElementsByClassName('station')[0].innerText = "最寄駅1"
+  const button = document.getElementById('addStation')
+  button.addEventListener('click', () => {
+    setTimeout(() => {
+      const moyoriekis = document.getElementsByClassName('station')
+      for(i = 0; i < stations.length; i++){
+        stations[i].innerHTML = `最寄駅${i+1}`
+      }
+    }, 1)
+  })
+}
+</script>

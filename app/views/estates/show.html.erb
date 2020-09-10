@@ -1,3 +1,20 @@
-<p>
-  show
-  </p>
+  <p>物件名 : <%= @estate.name %></p>
+  <p>賃料: <%= @estate.fee %></p>
+  <p>住所: <%= @estate.adress %></p>
+  <p>築年数: <%= @estate.year %></p>
+  <p>備考: <%= @estate.memo %></p>
+  
+  <table>
+    <tr>
+      <th>路線名</th>
+      <th>駅名</th>
+      <th>徒歩分数</th>
+    </tr>
+    <% @moyori_stations.each do |station| %>
+    <tr>
+      <td><%= station.route %></td>
+      <td><%= station.name %></td>
+      <td><%= station.time %></td>
+    </tr>
+    <% end %>
+  </table>
