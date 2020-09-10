@@ -19,7 +19,6 @@ class EstatesController < ApplicationController
     @moyori_stations = Station.where(estate_id: @estate.id)
   end
   def edit
-    @estate2 = Estate.new
     @estate.stations.build
   end
   def update
