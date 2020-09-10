@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'pry-rails'
-gem 'nested_form'
 gem 'rails', '~> 5.2.3'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'

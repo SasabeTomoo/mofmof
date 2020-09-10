@@ -16,11 +16,11 @@ class EstatesController < ApplicationController
     end
   end
   def show
-    @stations = Station.all
-    binding.pry
-    @moyori_stations = @stations.find(@estate.id).
+    @moyori_stations = Station.where(estate_id: @estate.id)
   end
   def edit
+    @estate2 = Estate.new
+    @estate2.build_station
   end
   def update
     @estate.update(estate_params)
@@ -48,5 +48,4 @@ def estate_params
                               :name,
                               :time,
                               :estate_id])
-  end
 end
