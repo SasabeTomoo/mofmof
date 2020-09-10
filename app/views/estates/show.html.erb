@@ -2,7 +2,8 @@
   <p>賃料: <%= @estate.fee %></p>
   <p>住所: <%= @estate.adress %></p>
   <p>築年数: <%= @estate.year %></p>
-  <p>備考: <%= @estate.memo %></p>
+  <p class="border">備考: <%= @estate.memo %></p>
+  
   
   <% @moyori_stations.each do |station| %>
     <p>路線名: <%= station.route %></p>

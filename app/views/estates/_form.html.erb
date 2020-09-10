@@ -15,29 +15,13 @@
     <%= form.label :耐用年数 %>
     <%= form.text_field :year %>
   </div>
-  <div class="estate_form">
+  <div class="border">
     <%= form.label :備考 %>
     <%= form.text_field :memo %>
   </div>
 
-    <%= form.fields_for :station do |station| %>
-      <h4>最寄駅1</h4>
-      <div class="estate_form">
-      <%= station.label :路線 %>
-      <%= station.text_field :route %>
-      </div>
-      <div class="estate_form">
-      <%= station.label :駅名 %>
-      <%= station.text_field :name %>
-      </div>
-      <div class="estate_form">
-      <%= station.label :徒歩数 %>
-      <%= station.text_field :time %>
-      </div>
-    <% end %>
-
-    <%= form.fields_for :station do |station| %>
-      <h4>最寄駅2</h4>
+    <%= form.fields_for :stations do |station| %>
+      <h4>最寄駅</h4>
       <div class="estate_form">
       <%= station.label :路線 %>
       <%= station.text_field :route %>

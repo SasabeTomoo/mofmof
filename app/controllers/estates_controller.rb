@@ -5,7 +5,7 @@ class EstatesController < ApplicationController
   end
   def new
     @estate = Estate.new
-    @estate.build_station
+    2.times { @estate.stations.build }
   end
   def create
     @estate = Estate.new(estate_params)
@@ -20,7 +20,7 @@ class EstatesController < ApplicationController
   end
   def edit
     @estate2 = Estate.new
-    @estate2.build_station
+    @estate.stations.build
   end
   def update
     @estate.update(estate_params)
@@ -43,9 +43,10 @@ def estate_params
           :adress,
           :year,
           :memo,
-          station_attributes:[:id,
+          stations_attributes:[:id,
                               :route,
                               :name,
                               :time,
                               :estate_id])
+
 end
